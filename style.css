@@ -1,0 +1,241 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #696767;
+    margin: 0;
+}
+
+.letter-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    height: 200px;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+  }
+  
+  .animated-mail {
+    position: absolute;
+    height: 150px;
+    width: 200px;
+    -webkit-transition: 0.4s;
+    -moz-transition: 0.4s;
+    transition: 0.4s;
+  
+    .body {
+      position: absolute;
+      bottom: 0;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 0 100px 200px;
+      border-color: transparent transparent #e95f55 transparent;
+      z-index: 2;
+    }
+  
+    .top-fold {
+      position: absolute;
+      top: 50px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 50px 100px 0 100px;
+      -webkit-transform-origin: 50% 0%;
+      -webkit-transition: transform 0.4s 0.4s, z-index 0.2s 0.4s;
+      -moz-transform-origin: 50% 0%;
+      -moz-transition: transform 0.4s 0.4s, z-index 0.2s 0.4s;
+      transform-origin: 50% 0%;
+      transition: transform 0.4s 0.4s, z-index 0.2s 0.4s;
+      border-color: #cf4a43 transparent transparent transparent;
+      z-index: 2;
+    }
+  
+    .back-fold {
+      position: absolute;
+      bottom: 0;
+      width: 200px;
+      height: 100px;
+      background: #cf4a43;
+      z-index: 0;
+    }
+  
+    .left-fold {
+      position: absolute;
+      bottom: 0;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 50px 0 50px 100px;
+      border-color: transparent transparent transparent #e15349;
+      z-index: 2;
+    }
+  
+    .letter {
+      left: 20px;
+      bottom: 0px;
+      position: absolute;
+      width: 160px;
+      height: 60px;
+      background: white;
+      z-index: 1;
+      overflow: hidden;
+      -webkit-transition: 0.4s 0.2s;
+      -moz-transition: 0.4s 0.2s;
+      transition: 0.4s 0.2s;
+  
+      .letter-border {
+        height: 10px;
+        width: 100%;
+        background: repeating-linear-gradient(
+          -45deg,
+          #cb5a5e,
+          #cb5a5e 8px,
+          transparent 8px,
+          transparent 18px
+        );
+      }
+  
+      .letter-title {
+        margin-top: 10px;
+        margin-left: 5px;
+        height: 10px;
+        width: 40%;
+        background: #cb5a5e;
+      }
+      .letter-context {
+        margin-top: 10px;
+        margin-left: 5px;
+        height: 10px;
+        width: 20%;
+        background: #cb5a5e;
+      }
+  
+      .letter-stamp {
+        margin-top: 30px;
+        margin-left: 120px;
+        border-radius: 100%;
+        height: 30px;
+        width: 30px;
+        background: #cb5a5e;
+        opacity: 0.3;
+      }
+    }
+  }
+  
+  .shadow {
+    position: absolute;
+    top: 200px;
+    left: 50%;
+    width: 400px;
+    height: 30px;
+    transition: 0.4s;
+    transform: translateX(-50%);
+    -webkit-transition: 0.4s;
+    -webkit-transform: translateX(-50%);
+    -moz-transition: 0.4s;
+    -moz-transform: translateX(-50%);
+  
+    border-radius: 100%;
+    background: radial-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0)
+    );
+  }
+  
+  .letter-image:hover {
+    .animated-mail {
+      transform: translateY(50px);
+      -webkit-transform: translateY(50px);
+      -moz-transform: translateY(50px);
+    }
+  
+    .animated-mail .top-fold {
+      transition: transform 0.4s, z-index 0.2s;
+      transform: rotateX(180deg);
+      -webkit-transition: transform 0.4s, z-index 0.2s;
+      -webkit-transform: rotateX(180deg);
+      -moz-transition: transform 0.4s, z-index 0.2s;
+      -moz-transform: rotateX(180deg);
+      z-index: 0;
+    }
+  
+    .animated-mail .letter {
+      height: 180px;
+    }
+  
+    .shadow {
+      width: 250px;
+    }
+  }
+  
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.5); /* Black w/ opacity */
+    transition: opacity 0.3s ease; /* Smooth transition */
+}
+
+.modal-content {
+    background-color: #e9d9d9;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #585858;
+    width: 50%; /* Could be more or less, depending on screen size */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: slideIn 0.3s; /* Animation for modal */
+}
+
+.modal-content h2 {
+    font-family: 'stencil', serif; /* Change to your desired font family */
+    font-size: 28px; /* Change to your desired font size */
+    font-weight: bold; /* Change to your desired font weight */
+    color: #333333; /* Change to your desired font color */
+    margin: 0; /* Remove default margin */
+    padding-bottom: 10px; /* Add some space below the heading */
+}
+
+.modal-content p {
+    font-family: 'papyrus', monospace; /* Change to your desired font family */
+    font-size: 16px; /* Change to your desired font size */
+    font-weight: normal; /* Change to your desired font weight */
+    color: #555; /* Change to your desired font color */
+    margin: 10px 0; /* Add some margin for spacing */
+    line-height: 1.5; /* Adjust line height for better readability */
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
